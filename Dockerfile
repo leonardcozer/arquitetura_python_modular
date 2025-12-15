@@ -20,7 +20,7 @@ RUN pip install --no-cache-dir --upgrade pip && \
 COPY . .
 
 # Expõe a porta 8000
-EXPOSE 8000
+EXPOSE 8001
 
 # Comando padrão
 CMD ["python", "cmd/api/main.py"]

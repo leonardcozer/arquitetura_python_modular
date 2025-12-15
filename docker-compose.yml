@@ -11,5 +11,5 @@ services:
       # Preserva os pacotes instalados no container
       - /usr/local/lib/python3.11/site-packages
     ports:
-      - "${SERVER_PORT:-8000}:8000"
+      - "${SERVER_PORT:-8001}:8001"
     command: ["python", "cmd/api/main.py"]
