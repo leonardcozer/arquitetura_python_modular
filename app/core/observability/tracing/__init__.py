@@ -1,7 +1,7 @@
 """
 Módulo de distributed tracing com OpenTelemetry
 """
-from internal.infra.tracing.opentelemetry_setup import (
+from app.core.observability.tracing.opentelemetry_setup import (
     setup_tracing,
     get_tracer,
     instrument_fastapi,

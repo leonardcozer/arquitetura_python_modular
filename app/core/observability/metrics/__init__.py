@@ -1,7 +1,7 @@
 """
 Módulo de métricas do Prometheus
 """
-from internal.infra.metrics.prometheus import (
+from app.core.observability.metrics.prometheus import (
     get_metrics,
     setup_metrics,
     http_request_duration,
@@ -12,7 +12,7 @@ from internal.infra.metrics.prometheus import (
     database_connections_active,
     database_queries_total,
 )
-from internal.infra.metrics.service_map import (
+from app.core.observability.metrics.service_map import (
     record_service_call,
     set_service_dependency,
     set_service_health,

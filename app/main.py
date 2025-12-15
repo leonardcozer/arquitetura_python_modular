@@ -18,16 +18,16 @@ from app.core.config import settings
 from app.core.database import db
 from internal.infra.http.server import create_server
 from internal.infra.http.middlewares import configure_middlewares, configure_cors
-from internal.infra.logger.zap import LOGGER_MAIN, configure_logging, shutdown_loki_handler
-from internal.infra.tracing.opentelemetry_setup import setup_tracing, instrument_fastapi, instrument_sqlalchemy
+from app.core.observability.logger import LOGGER_MAIN, configure_logging, shutdown_loki_handler
+from app.core.observability.tracing import setup_tracing, instrument_fastapi, instrument_sqlalchemy
 from app.modules.Cadastro import router as cadastro_router
 from app.core.exception_handlers import register_exception_handlers
 
 # Importa métricas do Prometheus (com tratamento de erro)
 METRICS_AVAILABLE = False
 try:
-    from internal.infra.metrics.prometheus import setup_metrics, get_metrics, get_metrics_content_type
-    from internal.infra.metrics.service_map import (
+    from app.core.observability.metrics import setup_metrics, get_metrics, get_metrics_content_type
+    from app.core.observability.metrics import (
         set_service_dependency,
         set_service_health,
         record_service_call
@@ -383,7 +383,7 @@ def main():
     
     # Verifica status do Tempo
     try:
-        from internal.infra.tracing.opentelemetry_setup import TRACING_AVAILABLE
+        from app.core.observability.tracing import TRACING_AVAILABLE
         if TRACING_AVAILABLE and settings.tempo.enabled:
             logger.info(f"🔍 Tempo/OpenTelemetry: CONECTADO - Endpoint: {settings.tempo.endpoint}")
         elif settings.tempo.enabled:

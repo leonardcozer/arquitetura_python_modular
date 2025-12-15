@@ -11,7 +11,7 @@ from app.core.config import settings
 
 # Importa métricas de service map
 try:
-    from internal.infra.metrics.service_map import record_service_call
+    from app.core.observability.metrics import record_service_call
     SERVICE_MAP_AVAILABLE = True
 except ImportError:
     SERVICE_MAP_AVAILABLE = False

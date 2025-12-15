@@ -5,7 +5,7 @@ from app.modules.Cadastro.produto.repository import ProdutoRepository
 from app.modules.Cadastro.produto.schemas import ProdutoCreateRequest, ProdutoUpdateRequest, ProdutoResponse, ProdutoListResponse
 from app.core.exceptions import NotFoundError, BadRequestError
 try:
-    from internal.infra.tracing.opentelemetry_setup import get_tracer
+    from app.core.observability.tracing import get_tracer
 except ImportError:
     def get_tracer(name):
         return None

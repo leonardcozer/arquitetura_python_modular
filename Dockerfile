@@ -23,4 +23,4 @@ COPY . .
 EXPOSE 8001
 
 # Comando padrão
-CMD ["python", "cmd/api/main.py"]
+CMD ["python", "-m", "app.main"]

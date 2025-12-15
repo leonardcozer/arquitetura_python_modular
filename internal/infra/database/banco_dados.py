@@ -7,7 +7,7 @@ from sqlalchemy.orm import sessionmaker, Session
 from sqlalchemy.pool import QueuePool
 from sqlalchemy.exc import SQLAlchemyError
 
-from config.config import settings
+from app.core.config import settings
 
 # Importa métricas de service map
 try:

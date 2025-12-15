@@ -12,4 +12,4 @@ services:
       - /usr/local/lib/python3.11/site-packages
     ports:
       - "${SERVER_PORT:-8001}:8001"
-    command: ["python", "cmd/api/main.py"]
+    command: ["python", "-m", "app.main"]

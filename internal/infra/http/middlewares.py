@@ -9,12 +9,12 @@ logger = logging.getLogger(__name__)
 
 # Importa métricas do Prometheus
 try:
-    from internal.infra.metrics.prometheus import (
+    from app.core.observability.metrics import (
         http_request_total,
         http_request_duration,
         http_errors_total,
+        record_service_call,
     )
-    from internal.infra.metrics.service_map import record_service_call
     METRICS_AVAILABLE = True
 except ImportError:
     METRICS_AVAILABLE = False

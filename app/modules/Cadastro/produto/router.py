@@ -8,23 +8,12 @@ from app.modules.Cadastro.produto.service import ProdutoService
 from app.modules.Cadastro.produto.repository import ProdutoRepository
 from app.core.database import db
 from app.core.exceptions import NotFoundError, BadRequestError
-try:
-    from pkg.utils.input_validators import (
-        sanitize_search_term,
-        sanitize_category,
-        validate_page_params,
-        validate_id
-    )
-except ImportError:
-    # Fallback se pkg.utils não estiver disponível
-    def sanitize_search_term(term: str) -> str:
-        return term.strip()
-    def sanitize_category(category: str) -> str:
-        return category.strip()
-    def validate_page_params(page: int, page_size: int) -> tuple[int, int]:
-        return page, page_size
-    def validate_id(id_value: int, field_name: str = "ID") -> int:
-        return id_value
+from app.core.validators import (
+    sanitize_search_term,
+    sanitize_category,
+    validate_page_params,
+    validate_id
+)
 
 logger = logging.getLogger("api")
 

@@ -4,7 +4,7 @@ Validadores e sanitizadores de input para prevenir SQL injection e outros ataque
 import re
 import logging
 from typing import Optional
-from pkg.apperrors.exceptions import BadRequestError
+from app.core.exceptions import BadRequestError
 
 logger = logging.getLogger(__name__)
 
