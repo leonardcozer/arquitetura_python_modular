@@ -17,5 +17,3 @@ def create_server() -> FastAPI:
     logger.info(f"FastAPI server created - Environment: {settings.environment}")
     return app
 
-
-# configure_logging foi movido para internal.infra.logger.zap

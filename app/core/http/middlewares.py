@@ -143,3 +143,4 @@ def configure_middlewares(app):
     """Configura todos os middlewares da aplicação"""
     app.add_middleware(LoggerMiddleware)
     logger.info("Middlewares configured successfully")
+

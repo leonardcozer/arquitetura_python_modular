@@ -16,8 +16,7 @@ sys.path.insert(0, str(__file__).rsplit('/', 1)[0])
 
 from app.core.config import settings
 from app.core.database import db
-from internal.infra.http.server import create_server
-from internal.infra.http.middlewares import configure_middlewares, configure_cors
+from app.core.http import create_server, configure_middlewares, configure_cors
 from app.core.observability.logger import LOGGER_MAIN, configure_logging, shutdown_loki_handler
 from app.core.observability.tracing import setup_tracing, instrument_fastapi, instrument_sqlalchemy
 from app.modules.Cadastro import router as cadastro_router
