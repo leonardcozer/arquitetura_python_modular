@@ -7,7 +7,8 @@ from fastapi import APIRouter
 from app.modules.Cadastro.produto import router as produto_router
 
 # Router principal do módulo Cadastro
-router = APIRouter(prefix="/cadastro", tags=["Cadastro"])
+# Não possui tags próprias - as tags vêm dos submódulos
+router = APIRouter(prefix="/cadastro")
 
 # Inclui os routers dos submódulos
 router.include_router(produto_router)
