@@ -1,0 +1,15 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ./:/app
+      # Preserva os pacotes instalados no container
+      - /usr/local/lib/python3.11/site-packages
+    ports:
+      - "${SERVER_PORT:-8000}:8000"
+    command: ["python", "cmd/api/main.py"]
