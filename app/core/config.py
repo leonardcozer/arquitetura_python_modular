@@ -52,7 +52,7 @@ class ServerConfig(BaseSettings):
 
 
 class LokiConfig(BaseSettings):
-    url: str = os.getenv("LOKI_URL", "http://172.30.0.45:3100")
+    url: str = os.getenv("LOKI_URL", "http://localhost:3100")
     job: str = os.getenv("LOKI_JOB", "MONITORAMENTO_PRODUTO")
     enabled: bool = os.getenv("LOKI_ENABLED", "True").lower() == "true"
 
