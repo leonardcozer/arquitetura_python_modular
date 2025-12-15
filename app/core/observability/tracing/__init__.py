@@ -1,7 +1,7 @@
 """
 Módulo de distributed tracing com OpenTelemetry
 """
-from app.core.observability.tracing.opentelemetry_setup import (
+from app.core.observability.tracing.trace_manager import (
     setup_tracing,
     get_tracer,
     instrument_fastapi,
@@ -16,4 +16,3 @@ __all__ = [
     "instrument_sqlalchemy",
     "TRACING_AVAILABLE",
 ]
-

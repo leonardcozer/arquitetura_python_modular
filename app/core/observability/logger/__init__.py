@@ -1,4 +1,4 @@
-from app.core.observability.logger.zap import (
+from app.core.observability.logger.log_manager import (
     LOGGER_MAIN,
     LOGGER_DATABASE,
     LOGGER_API,
@@ -19,4 +19,3 @@ __all__ = [
     "configure_logging",
     "shutdown_loki_handler",
 ]
-

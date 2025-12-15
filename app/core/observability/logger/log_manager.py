@@ -116,7 +116,7 @@ class LokiHandler(logging.Handler):
         """Processa batch de logs em background"""
         # Importa métricas do Prometheus
         try:
-            from app.core.observability.metrics.prometheus import (
+            from app.core.observability.metrics.metrics_collector import (
                 loki_logs_sent_total,
                 loki_logs_failed_total,
             )
@@ -204,7 +204,7 @@ class LokiHandler(logging.Handler):
                             level = entry.get('_record_level', 'unknown')
                             logger_name = entry.get('_record_logger', 'unknown')
                             try:
-                                from app.core.observability.metrics.prometheus import loki_logs_sent_total
+                                from app.core.observability.metrics.metrics_collector import loki_logs_sent_total
                                 loki_logs_sent_total.labels(level=level, logger=logger_name).inc()
                             except:
                                 pass
@@ -405,3 +405,4 @@ def shutdown_loki_handler(timeout: float = 10.0):
     if _loki_handler_instance:
         _loki_handler_instance.shutdown(timeout=timeout)
         _loki_handler_instance = None
+
